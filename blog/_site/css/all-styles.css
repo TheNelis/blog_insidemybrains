@@ -13,6 +13,9 @@ html {
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
   -webkit-font-smoothing: antialiased;
+  font-synthesis: none;
+  font-style: normal;
+  font-weight: 600;
 }
 
 /* Remove default margin in favour of better control in authored CSS */
