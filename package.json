@@ -1,0 +1,14 @@
+{
+    "name": "nielshos_blog",
+    "private": true,
+    "workspaces": [
+      "blog",
+      "sanity-studio"
+    ],
+    "scripts": {
+      "build": "npm run build --workspace=blog",
+      "build:studio": "npm run build --workspace=sanity-studio",
+      "start": "npm run start --workspace=blog"
+    }
+  }
+  

@@ -1,0 +1,85 @@
+---
+layout: layouts/base.html
+eleventyComputed:
+  title: "Inside My Brains: {{ post.title }}"
+pagination:
+  data: blogPosts
+  size: 1
+  alias: post
+permalink: "/blog/{{ post.slug }}/"
+---
+
+<div class="maincontainer blogpost-page">
+  <div class="blogpost">
+    <a href="/" class="button button--left">
+      <svg xmlns="http://www.w3.org/2000/svg" width="10.8" height="18" viewBox="0 0 9 15" fill="none">
+        <path d="M0.292893 8.20711C-0.0976311 7.81658 -0.0976311 7.18342 0.292893 6.79289L6.65685 0.428932C7.04738 0.0384079 7.68054 0.0384079 8.07107 0.428932C8.46159 0.819456 8.46159 1.45262 8.07107 1.84315L2.41421 7.5L8.07107 13.1569C8.46159 13.5474 8.46159 14.1805 8.07107 14.5711C7.68054 14.9616 7.04738 14.9616 6.65685 14.5711L0.292893 8.20711ZM2 7.5L2 8.5H1L1 7.5L1 6.5H2L2 7.5Z" fill="#000"/>
+      </svg>
+      <p>All posts</p>
+    </a>
+    <div class="blogpost__titlecontainer">
+      <h1 class="blogpost__titlecontainer__title">{{ post.title }}</h1>
+      <p class="blogpost__titlecontainer__info">{{ post.publishedAt | date }}, {{ post.category }}</p>
+    </div>
+
+    <div class="blogpost__content">
+      {{ post.content | portableText | safe }}
+    </div>
+
+    <hr class="blogpost__breakline">
+    <div class="blogpost__authorcontainer">
+      <img src="/assets/images/portretfoto_niels.jpeg" alt="">
+      <div class="blogpost__authorcontainer__info">
+        <p>Niels Hos</p>
+        <p>Read <a href="/">more posts</a> by this author.</p>
+      </div>
+    </div>
+  </div>
+  
+
+  {% set currentIndex = 0 %}
+  {% for p in blogPosts %}
+    {% if p.slug == post.slug %}
+      {% set currentIndex = loop.index0 %}
+    {% endif %}
+  {% endfor %}
+
+  {% set previousPost = blogPosts[currentIndex - 1] %}
+  {% set nextPost = blogPosts[currentIndex + 1] %}  
+
+  <div class="navigation">
+    <a href="/blog/{{ previousPost.slug }}" class="navigation__button navigation__button--previous" 
+    {% if previousPost %}style="opacity: 1; pointer-events: all; max-height: none; padding: 20px 25px;"{% endif %}>
+      <svg class="navigation__button__svg" xmlns="http://www.w3.org/2000/svg" width="79" height="254" viewBox="0 0 79 254" fill="none">
+        <path d="M76 3.00024L3 127.026M3 126.974L76 251" stroke="#0078D7" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <div class="navigation__button__textcontainer">
+        <div class="navigation__button__textcontainer__topcontainer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="10.8" height="18" viewBox="0 0 9 15" fill="none">
+            <path d="M0.292893 8.20711C-0.0976311 7.81658 -0.0976311 7.18342 0.292893 6.79289L6.65685 0.428932C7.04738 0.0384079 7.68054 0.0384079 8.07107 0.428932C8.46159 0.819456 8.46159 1.45262 8.07107 1.84315L2.41421 7.5L8.07107 13.1569C8.46159 13.5474 8.46159 14.1805 8.07107 14.5711C7.68054 14.9616 7.04738 14.9616 6.65685 14.5711L0.292893 8.20711ZM2 7.5L2 8.5H1L1 7.5L1 6.5H2L2 7.5Z" fill="#000"/>
+          </svg>
+          <p >Read this next</p>
+        </div>
+        <h3 class="navigation__button__textcontainer__title">{{ previousPost.title }}</h3>
+        <p class="navigation__button__textcontainer__summary">{{ previousPost.content | truncateContent20 }}</p>
+      </div>
+    </a>
+    <a href="/blog/{{ nextPost.slug }}" class="navigation__button navigation__button--next" 
+    {% if nextPost %}style="opacity: 1; pointer-events: all; max-height: none; padding: 20px 25px;"{% endif %}>
+      <div class="navigation__button__textcontainer">
+        <div class="navigation__button__textcontainer__topcontainer">
+          <p>You might enjoy</p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="10.8" height="18" viewBox="0 0 9 15" fill="none">
+            <path d="M8.70711 8.20711C9.09763 7.81658 9.09763 7.18342 8.70711 6.79289L2.34315 0.428932C1.95262 0.0384079 1.31946 0.0384079 0.928932 0.428932C0.538408 0.819456 0.538408 1.45262 0.928932 1.84315L6.58579 7.5L0.928932 13.1569C0.538408 13.5474 0.538408 14.1805 0.928932 14.5711C1.31946 14.9616 1.95262 14.9616 2.34315 14.5711L8.70711 8.20711ZM7 7.5V8.5H8V7.5V6.5H7V7.5Z" fill="black"/>
+          </svg>
+        </div>
+        <h3 class="navigation__button__textcontainer__title">{{ nextPost.title }}</h3>
+        <p class="navigation__button__textcontainer__summary">{{ nextPost.content | truncateContent20 }}</p>
+      </div>
+      <svg class="navigation__button__svg" xmlns="http://www.w3.org/2000/svg" width="79" height="254" viewBox="0 0 79 254" fill="none">
+        <path d="M3 3.00024L76 127.026M76 126.974L3 251" stroke="#0078D7" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+    </a>
+  </div>
+
+</div>

@@ -1,0 +1,192 @@
+@use './variables.scss' as v;
+
+@keyframes floatSM {
+    0% { transform: translate(390%, 0); }
+    50% { transform: translate(390%, -15px); }
+    100% { transform: translate(390%, 0); }
+}
+
+@keyframes floatMD {
+    0% { transform: translate(630%, 0); }
+    50% { transform: translate(630%, -15px); }
+    100% { transform: translate(630%, 0); }
+}
+
+@keyframes floatLG {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+.maincontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 v.$margin-mobile;
+
+    @media only screen and (min-width:v.$lg){
+        margin: 0 v.$margin-desktop;
+    }
+}
+
+.homepage__titlecontainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    margin: 140px 0 160px 0;
+    margin-bottom: 100px;
+
+    @media only screen and (min-width:v.$lg){
+        margin: 140px 0 160px 0;
+        margin-bottom: 140px;
+    }
+
+    &::after {
+        content: '🧠';
+        position: absolute;
+        top: -20%;
+        right: 50%;
+        transform: translateX(390%);
+        font-size: 3rem;
+        animation: floatSM 3s ease-in-out infinite;
+
+        @media only screen and (min-width: 573px){
+            animation: none;
+            transform: translateX(630%);
+            animation: floatMD 3s ease-in-out infinite;
+        }
+
+        @media only screen and (min-width:v.$lg){
+            font-size: 4rem;
+            top: -20%;
+            right: -4%;
+            transform: translateX(0);
+            animation: floatLG 3s ease-in-out infinite;
+        }
+    }
+
+    &__title {
+        font-family: 'Lilita One';
+        font-size: 4rem;
+        text-align: center;
+
+        @media only screen and (min-width:v.$lg){
+            font-size: 6rem;
+        }
+    }
+
+    &__subtitle {
+        font-family: 'Poppins-Regular';
+        font-size: 1.25rem;
+
+        @media only screen and (min-width:v.$lg){
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.allposts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: auto;
+    max-width: 1100px;
+    margin-bottom: 90px;
+
+    @media only screen and (min-width:v.$lg){
+        width: 1100px;
+        gap: 40px;
+        margin-bottom: 140px;
+    }
+
+    .noposts {
+        color: white;
+        font-family: 'Poppins-Regular';
+        font-size: 1rem;
+    }
+
+    .blogpost {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-decoration: none;
+        color: black;
+        transition: all .2s ease-in-out;
+
+        @media only screen and (min-width:v.$lg){
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        &:hover {
+            margin-left: 15px;
+        }
+
+        &__titlecontainer {
+            flex: 5;
+            color: white;
+
+            &__category {
+                font-family: 'Poppins-Regular';
+                font-size: 1rem;
+                text-transform: capitalize;
+
+                @media only screen and (min-width:v.$lg){
+                    font-size: 1.125rem;
+                    margin-bottom: 5px;
+                    text-align: end;
+                }
+            }
+
+            &__title {
+                font-family: 'Poppins-Bold';
+                font-size: 1.875rem;
+                line-height: 120%;
+
+                @media only screen and (min-width:v.$lg){
+                    font-size: 2.25rem;
+                    text-align: end;
+                }
+            }
+        }
+
+        &__previewcontainer {
+            flex: 6;
+            background-color: white;
+            border-radius: 16px;
+            padding: 20px 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            @media only screen and (min-width:v.$lg){
+                gap: 40px;
+            }
+
+            &__text {
+                font-family: 'Poppins-Regular';
+                font-size: 1rem;
+                line-height: 150%;
+            }
+
+            &__info {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-family: 'Poppins-Regular';
+                font-size: 0.93rem;
+                text-transform: capitalize;
+
+                img {
+                    width: 27px;
+                    height: 27px;
+                    object-fit: cover;
+                    border-radius: 100%;
+                }
+            }
+        }
+    }
+}

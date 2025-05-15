@@ -1,0 +1,36 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx eleventy --serve",
+    "build": "npx eleventy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.0",
+    "gulp": "^5.0.0",
+    "gulp-sass": "^6.0.1",
+    "sass": "^1.87.0"
+  },
+  "dependencies": {
+    "@portabletext/to-html": "^2.0.14",
+    "@sanity/block-content-to-html": "^2.0.0",
+    "@sanity/client": "^7.1.0"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheNelis/blog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TheNelis/blog/issues"
+  },
+  "homepage": "https://github.com/TheNelis/blog#readme",
+  "description": ""
+}
