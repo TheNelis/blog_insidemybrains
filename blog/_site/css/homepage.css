@@ -1,0 +1,232 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Lilita One";
+  src: url(../assets/fonts/Lilita_One/LilitaOne-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Poppins-Light";
+  src: url(../assets/fonts/Poppins/Poppins-Light.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Poppins-LightItalic";
+  src: url(../assets/fonts/Poppins/Poppins-LightItalic.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Poppins-Regular";
+  src: url(../assets/fonts/Poppins/Poppins-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Poppins-Semibold";
+  src: url(../assets/fonts/Poppins/Poppins-SemiBold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Poppins-Bold";
+  src: url(../assets/fonts/Poppins/Poppins-Bold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Poppins-Black";
+  src: url(../assets/fonts/Poppins/Poppins-Black.ttf) format("truetype");
+}
+@keyframes floatSM {
+  0% {
+    transform: translate(390%, 0);
+  }
+  50% {
+    transform: translate(390%, -15px);
+  }
+  100% {
+    transform: translate(390%, 0);
+  }
+}
+@keyframes floatMD {
+  0% {
+    transform: translate(630%, 0);
+  }
+  50% {
+    transform: translate(630%, -15px);
+  }
+  100% {
+    transform: translate(630%, 0);
+  }
+}
+@keyframes floatLG {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.maincontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 15px;
+}
+@media only screen and (min-width: 992px) {
+  .maincontainer {
+    margin: 0 40px;
+  }
+}
+
+.homepage__titlecontainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  margin: 140px 0 160px 0;
+  margin-bottom: 100px;
+}
+@media only screen and (min-width: 992px) {
+  .homepage__titlecontainer {
+    margin: 140px 0 160px 0;
+    margin-bottom: 140px;
+  }
+}
+.homepage__titlecontainer::after {
+  content: "🧠";
+  position: absolute;
+  top: -20%;
+  right: 50%;
+  transform: translateX(390%);
+  font-size: 3rem;
+  animation: floatSM 3s ease-in-out infinite;
+}
+@media only screen and (min-width: 573px) {
+  .homepage__titlecontainer::after {
+    animation: none;
+    transform: translateX(630%);
+    animation: floatMD 3s ease-in-out infinite;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .homepage__titlecontainer::after {
+    font-size: 4rem;
+    top: -20%;
+    right: -4%;
+    transform: translateX(0);
+    animation: floatLG 3s ease-in-out infinite;
+  }
+}
+.homepage__titlecontainer__title {
+  font-family: "Lilita One";
+  font-size: 4rem;
+  text-align: center;
+}
+@media only screen and (min-width: 992px) {
+  .homepage__titlecontainer__title {
+    font-size: 6rem;
+  }
+}
+.homepage__titlecontainer__subtitle {
+  font-family: "Poppins-Regular";
+  font-size: 1.25rem;
+}
+@media only screen and (min-width: 992px) {
+  .homepage__titlecontainer__subtitle {
+    font-size: 1.5rem;
+  }
+}
+
+.allposts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: auto;
+  max-width: 1100px;
+  margin-bottom: 90px;
+}
+@media only screen and (min-width: 992px) {
+  .allposts-container {
+    width: 1100px;
+    gap: 40px;
+    margin-bottom: 140px;
+  }
+}
+.allposts-container .noposts {
+  color: white;
+  font-family: "Poppins-Regular";
+  font-size: 1rem;
+}
+.allposts-container .blogpost {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-decoration: none;
+  color: black;
+  transition: all 0.2s ease-in-out;
+}
+@media only screen and (min-width: 992px) {
+  .allposts-container .blogpost {
+    flex-direction: row;
+    gap: 20px;
+  }
+}
+.allposts-container .blogpost:hover {
+  margin-left: 15px;
+}
+.allposts-container .blogpost__titlecontainer {
+  flex: 5;
+  color: white;
+}
+.allposts-container .blogpost__titlecontainer__category {
+  font-family: "Poppins-Regular";
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+@media only screen and (min-width: 992px) {
+  .allposts-container .blogpost__titlecontainer__category {
+    font-size: 1.125rem;
+    margin-bottom: 5px;
+    text-align: end;
+  }
+}
+.allposts-container .blogpost__titlecontainer__title {
+  font-family: "Poppins-Bold";
+  font-size: 1.875rem;
+  line-height: 120%;
+}
+@media only screen and (min-width: 992px) {
+  .allposts-container .blogpost__titlecontainer__title {
+    font-size: 2.25rem;
+    text-align: end;
+  }
+}
+.allposts-container .blogpost__previewcontainer {
+  flex: 6;
+  background-color: white;
+  border-radius: 16px;
+  padding: 20px 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+@media only screen and (min-width: 992px) {
+  .allposts-container .blogpost__previewcontainer {
+    gap: 40px;
+  }
+}
+.allposts-container .blogpost__previewcontainer__text {
+  font-family: "Poppins-Regular";
+  font-size: 1rem;
+  line-height: 150%;
+}
+.allposts-container .blogpost__previewcontainer__info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Poppins-Regular";
+  font-size: 0.93rem;
+  text-transform: capitalize;
+}
+.allposts-container .blogpost__previewcontainer__info img {
+  width: 27px;
+  height: 27px;
+  object-fit: cover;
+  border-radius: 100%;
+}
