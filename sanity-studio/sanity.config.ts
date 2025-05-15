@@ -10,6 +10,8 @@ export default defineConfig({
   projectId: 'vxuebgli',
   dataset: 'production',
 
+  basePath: '/',
+
   plugins: [structureTool(), visionTool()],
 
   schema: {
