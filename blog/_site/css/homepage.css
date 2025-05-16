@@ -151,6 +151,7 @@
   color: white;
   font-family: "Poppins-Regular";
   font-size: 1rem;
+  text-align: center;
 }
 .allposts-container .blogpost {
   width: 100%;
